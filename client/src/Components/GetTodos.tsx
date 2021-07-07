@@ -37,6 +37,9 @@ const GetTodos = ({todoList, completeTask, todos , setTodos}:props,) => {
 
 
   const submitEdit = (id:number|undefined|string) =>{
+    if(editedTaskName === '' || editedDescription === ' ' || editedCreatedBy === '' ){
+      alert('please fill out all feilds')
+    } else {
     const updatedTodos = [...todos].map((todoList: todoList) => {
       if(todoList.id === id) {
         todoList.taskName = editedTaskName;
@@ -48,6 +51,7 @@ const GetTodos = ({todoList, completeTask, todos , setTodos}:props,) => {
     })
     setTodos(updatedTodos)
       setEditedTodo('')
+  }
   }
 
 
