@@ -154,29 +154,23 @@ h1 {
   justify-content: right;
 }
 
-.editedTaskName{
-  padding: 14px 32px 14px 16px;
-  border-radius: 4px 4px 4px 4px;
-  border: 2px solid #5d0cff;
-  margin-top: 10px;
-  margin-bottom: 3px;
-  outline: none;
-  width: 320px;
-  background: transparent;
+.editing-form{
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  margin: 4px auto;
+  margin-left: 4px;
   color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  padding: 16px;
+  border-radius: 5px;
+  width: 900%;
 }
-.editeddescription{
-  padding: 14px 32px 14px 16px;
-  border-radius: 4px 4px 4px 4px;
-  border: 2px solid #5d0cff;
-  margin-bottom: 3px;
-  outline: none;
-  width: 320px;
-  background: transparent;
-  color: #fff;
-}
-.editedcreatedBy{
-  padding: 14px 32px 14px 16px;
+.editing-form .input::placeholder{
   border-radius: 4px 4px 4px 4px;
   border: 2px solid #5d0cff;
   margin-bottom: 3px;
@@ -187,3 +181,37 @@ h1 {
 
 }
 
+.strike-through{
+  text-decoration: line-through;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  margin: 4px ;
+  margin-left: 4px;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  padding: 16px;
+  border-radius: 5px;
+  width: 900%;
+}
+
+.not-strike-through{
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  margin: 4px ;
+  margin-left: 4px;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  padding: 16px;
+  border-radius: 5px;
+  width: 900%;
+}

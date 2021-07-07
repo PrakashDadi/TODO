@@ -60,53 +60,73 @@ const GetTodos = ({todoList, completeTask, todos , setTodos}:props,) => {
         createdOn: new Date().toISOString()
     })      
   }
-  
+  const[checked, setChecked]=useState<boolean>(false)
+
+  const strikeThrough = () =>{
+   if(checked === false){
+    setChecked(true)
+   }else {
+    setChecked(false)
+   }
+  }
  
 
   return (
     <div className='todo-container'>
       {todoList.id === editedTodo? (
         <div className="editing-form">
-        <div>
+        <span>{todoList.id}</span>
         <input
           type="text"
           placeholder="Enter Task Name"
           name="editedTaskName"
+          value={editedTaskName}
           className="editedTaskName"
           onChange={ (e:ChangeEvent<HTMLInputElement>) => {
            setEditedTaskName(e.target.value)
           }}
-        /></div>
-        <div>
+        />
         <input
           type="text"
           placeholder="Enter Description"
           name="description"
+          value={editedDescription}
           className="editeddescription"
           onChange={ (e:ChangeEvent<HTMLInputElement>) => {
             setEditedDescription(e.target.value)
           }}
-        /></div>
-        <div>
+        />
         <input
           type="text"
           name="editedCreatedBy"
           placeholder = "Created By"
           className="editedcreatedBy"
+          value={editedCreatedBy}
           onChange={ (e:ChangeEvent<HTMLInputElement>) => {
             setEditedCreatedBy(e.target.value)
           }}
-        /></div>
+        />
+        <span>{todoList.createdOn}</span>
         </div>
       ):(<div className='todo-row'>
-      <div> 
-        <input type='checkbox' id="completed"/>
-      </div>
+        <input type='checkbox' id="completed" defaultChecked={false} onChange={strikeThrough}/>
+        {checked === true?(
+        <div className='strike-through'>
         <span>{todoList.id}</span>
         <span>{todoList.taskName}</span>
         <span>{todoList.description}</span>
         <span>{todoList.createdBy}</span>
-        <span>{todoList.createdOn}</span>        
+        <span>{todoList.createdOn}</span>
+        </div>
+        ):(
+        <div className='not-strike-through'>
+        <span>{todoList.id}</span>
+        <span>{todoList.taskName}</span>
+        <span>{todoList.description}</span>
+        <span>{todoList.createdBy}</span>
+        <span>{todoList.createdOn}</span>
+        </div> )}
+              
       </div>)}
       
       <div className="icons">
