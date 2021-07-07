@@ -27,7 +27,7 @@ const TodoForm = () => {
   }, [])
 
   const addID = () => {
-    setId(Math.floor(Math.random() * 10000))
+    setId(Math.floor(Math.random() * 10000000))
     setCreatedOn(new Date().toISOString())
   }
   const addTodo = () => {
@@ -58,7 +58,6 @@ const TodoForm = () => {
   }
 
  
-
   return (
     <div>
     <div className="todo-form">
